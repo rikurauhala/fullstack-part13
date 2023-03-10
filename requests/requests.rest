@@ -2,7 +2,16 @@ GET http://localhost:3001/api/blogs
 
 ###
 
-GET http://localhost:3001/api/blogs/1
+GET http://localhost:3001/api/blogs/7
+
+###
+
+PUT http://localhost:3001/api/blogs/7 HTTP/1.1
+Content-Type: application/json
+
+{
+    "likes": 10
+}
 
 ###
 
@@ -17,4 +26,4 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3001/api/blogs/1
+DELETE http://localhost:3001/api/blogs/7
