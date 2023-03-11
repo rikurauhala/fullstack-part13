@@ -8,12 +8,15 @@ User.init({
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
-    autoIncrement: true
+    autoIncrement: true,
   },
   username: {
     type: DataTypes.STRING,
     unique: true,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      isEmail: true,
+    },
   },
   name: {
     type: DataTypes.STRING,
@@ -23,7 +26,7 @@ User.init({
   sequelize,
   underscored: true,
   timestamps: true,
-  modelName: 'user'
+  modelName: 'user',
 })
 
 module.exports = User
