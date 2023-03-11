@@ -1,0 +1,29 @@
+GET http://localhost:3001/api/users
+
+###
+
+POST http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+    "username": "kenobi",
+    "name": "Obi-Wan Kenobi"
+}
+
+###
+
+PUT http://localhost:3001/api/users/obi-wan
+Content-Type: application/json
+
+{
+    "username": "kenobi"
+}
+
+###
+
+PUT http://localhost:3001/api/users/kenobi
+Content-Type: application/json
+
+{
+    "username": "obi-wan"
+}
