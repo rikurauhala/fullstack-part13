@@ -16,6 +16,9 @@ const errorHandler = (error, request, response, next) => {
   if (error.name === 'SequelizeUniqueConstraintError') {
     return response.status(400).json({ error: 'Username must be unique' })
   }
+  if (error.name === 'TypeError') {
+    return response.status(404).json({ error: 'This blog does not exists' })
+  }
 
   next(error)
 }

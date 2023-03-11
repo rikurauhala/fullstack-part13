@@ -51,11 +51,15 @@ router.put('/:id', blogFinder, async (req, res) => {
   }
 })
 
-router.delete('/:id', blogFinder, async (req, res) => {
-  if (req.blog) {
-    await req.blog.destroy()
+router.delete('/:id', tokenExtractor, async (req, res) => {
+  const user = await User.findByPk(req.decodedToken.id)
+  const blog = await Blog.findByPk(req.params.id)
+  if (user.id === blog.userId) {
+    await blog.destroy()
+    res.status(204).json('Blog deleted')
+  } else {
+    res.status(401).json({ error: 'Not authorized to delete this blog' })
   }
-  res.status(204).end()
 })
 
 module.exports = router
