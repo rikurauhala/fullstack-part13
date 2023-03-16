@@ -19,6 +19,9 @@ const errorHandler = (error, request, response, next) => {
   if (error.name === 'TypeError') {
     return response.status(404).json({ error: 'This blog does not exists' })
   }
+  if (error.name === 'SequelizeDatabaseError') {
+    return response.status(400).json({ error: error.message })
+  }
 
   next(error)
 }
