@@ -13,5 +13,3 @@ Content-Type: application/json
     "username": "obi-wan@kenobi.com",
     "name": "Obi-Wan Kenobi"
 }
-
-###
