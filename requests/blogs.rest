@@ -32,6 +32,18 @@ Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im9iaS13YW5Aa2Vub2JpLmNvbSIsImlkIjoxLCJpYXQiOjE2Nzg5NTc2Nzh9.pOXyLn27vIJka0aEGbym7EuTCAwJ7-bla9KshBrDvBo
 
 {
+    "author": "Obi-Wan Kenobi",
+    "url": "www.kenobi.com",
+    "title": "Hello there!",
+    "year": "2005"
+}
+
+###
+POST http://localhost:3001/api/blogs HTTP/1.1
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im9iaS13YW5Aa2Vub2JpLmNvbSIsImlkIjoxLCJpYXQiOjE2Nzg5NTc2Nzh9.pOXyLn27vIJka0aEGbym7EuTCAwJ7-bla9KshBrDvBo
+
+{
     "author": "General Grievous",
     "url": "www.grievous.com",
     "title": "General Kenobi! You are a bold one.",
