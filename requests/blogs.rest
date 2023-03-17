@@ -27,5 +27,17 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im9ia
 }
 
 ###
+POST http://localhost:3001/api/blogs HTTP/1.1
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im9iaS13YW5Aa2Vub2JpLmNvbSIsImlkIjoxLCJpYXQiOjE2Nzg5NTc2Nzh9.pOXyLn27vIJka0aEGbym7EuTCAwJ7-bla9KshBrDvBo
+
+{
+    "author": "General Grievous",
+    "url": "www.grievous.com",
+    "title": "General Kenobi! You are a bold one.",
+    "year": "2005"
+}
+
+###
 DELETE http://localhost:3001/api/blogs/8
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imtlbm9iaSIsImlkIjoyLCJpYXQiOjE2Nzg1NTIxNzd9.j-mrfq58Q-hBRoRfAC9CudYp6TjnIu22g4-cIDmj-Vs

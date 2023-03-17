@@ -2,6 +2,10 @@ GET http://localhost:3001/api/users
 
 ###
 
+GET http://localhost:3001/api/users/1
+
+###
+
 POST http://localhost:3001/api/users
 Content-Type: application/json
 
@@ -11,19 +15,3 @@ Content-Type: application/json
 }
 
 ###
-
-PUT http://localhost:3001/api/users/obi-wan
-Content-Type: application/json
-
-{
-    "username": "kenobi"
-}
-
-###
-
-PUT http://localhost:3001/api/users/kenobi
-Content-Type: application/json
-
-{
-    "username": "obi-wan"
-}
