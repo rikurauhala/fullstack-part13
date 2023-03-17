@@ -13,3 +13,12 @@ Content-Type: application/json
     "username": "obi-wan@kenobi.com",
     "name": "Obi-Wan Kenobi"
 }
+
+###
+POST http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+    "username": "anakin@skywalker.com",
+    "name": "Anakin Skywalker"
+}
