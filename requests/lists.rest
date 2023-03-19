@@ -5,12 +5,12 @@ POST http://localhost:3001/api/lists
 Content-Type: application/json
 
 {
-    "blogId": 2,
-    "userId": 1
+    "blogId": 1,
+    "userId": 3
 }
 
 ###
-PUT http://localhost:3001/api/lists/3 HTTP/1.1
+PUT http://localhost:3001/api/lists/7 HTTP/1.1
 Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFuYWtpbkBza3l3YWxrZXIuY29tIiwiaWQiOjMsImlhdCI6MTY3OTA4MjI3OH0.b0c6ectI-bXFWoaRqt53NmB_yJJaHdi0bmzlF6ckOq8
 

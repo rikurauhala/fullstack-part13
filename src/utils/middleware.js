@@ -28,6 +28,9 @@ const errorHandler = (error, request, response, next) => {
   if (error.name === 'ReferenceError') {
     return response.status(400).json({ error: error.message })
   }
+  if (error.name === 'SequelizeForeignKeyConstraintError') {
+    return response.status(400).json({ error: error.message })
+  }
 
   next(error)
 }
