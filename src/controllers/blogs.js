@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const { Op } = require('sequelize')
-const { Blog, User } = require('../models')
+const { Blog, Session, User } = require('../models')
 const tokenExtractor = require('../utils/tokens')
 
 const blogFinder = async (req, res, next) => {
@@ -67,6 +67,10 @@ router.put('/:id', blogFinder, async (req, res) => {
 })
 
 router.delete('/:id', tokenExtractor, async (req, res) => {
+  const session = await Session.findOne({
+    where: { userId: req.decodedToken.id }
+  })
+  if (!session) res.status(401).json({ error: 'Not authorized to delete this blog' })
   const user = await User.findByPk(req.decodedToken.id)
   const blog = await Blog.findByPk(req.params.id)
   if (user.id === blog.userId) {
