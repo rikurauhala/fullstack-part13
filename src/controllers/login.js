@@ -2,18 +2,16 @@ const jwt = require('jsonwebtoken')
 const router = require('express').Router()
 
 const { SECRET } = require('../utils/config')
+
+const Session = require('../models/session')
 const User = require('../models/user')
 
-router.post('/', async (request, response) => {
-  const body = request.body
-
+router.post('/', async (req, res) => {
   const user = await User.findOne({
-    where: {
-      username: body.username
-    }
+    where: { username: req.body.username }
   })
 
-  const passwordCorrect = body.password === 'secret'
+  const passwordCorrect = req.body.password === 'secret'
 
   if (!(user && passwordCorrect)) {
     return response.status(401).json({
@@ -28,7 +26,16 @@ router.post('/', async (request, response) => {
 
   const token = jwt.sign(userForToken, SECRET)
 
-  response
+  await Session.destroy({
+    where: { userId: user.id }
+  })
+
+  await Session.create({
+    userId: user.id,
+    token: token,
+  })
+
+  res
     .status(200)
     .send({ token, username: user.username, name: user.name })
 })
